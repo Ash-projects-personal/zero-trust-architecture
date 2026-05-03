@@ -1,0 +1,47 @@
+{
+    "audit_timestamp": "2026-05-03T18:39:53.633992",
+    "iam_issues_found": 48,
+    "sg_issues_found": 34,
+    "mtls_compliance_rate": "76.0%",
+    "blast_radius_reduction": "56%",
+    "top_iam_issues": [
+        {
+            "policy": "Policy_002",
+            "severity": "HIGH",
+            "issue": "Wildcard action (*) grants excessive permissions",
+            "remediation": "Replace '*' with specific required actions"
+        },
+        {
+            "policy": "Policy_005",
+            "severity": "HIGH",
+            "issue": "Wildcard resource (*) on sensitive service",
+            "remediation": "Scope resource ARN to specific resources"
+        },
+        {
+            "policy": "Policy_010",
+            "severity": "MEDIUM",
+            "issue": "No MFA condition on sensitive actions",
+            "remediation": "Add aws:MultiFactorAuthPresent condition"
+        }
+    ],
+    "top_sg_issues": [
+        {
+            "security_group": "sg-0075734",
+            "severity": "CRITICAL",
+            "issue": "Port 3306 open to 0.0.0.0/0 (internet)",
+            "remediation": "Restrict port 3306 to specific CIDR ranges or security groups"
+        },
+        {
+            "security_group": "sg-0066d43",
+            "severity": "MEDIUM",
+            "issue": "All traffic allowed between internal security groups",
+            "remediation": "Implement micro-segmentation with specific port rules"
+        },
+        {
+            "security_group": "sg-00ab6d3",
+            "severity": "MEDIUM",
+            "issue": "All traffic allowed between internal security groups",
+            "remediation": "Implement micro-segmentation with specific port rules"
+        }
+    ]
+}
