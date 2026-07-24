@@ -1,0 +1,4 @@
+# Test-time deps.
+#   pip install -r requirements-dev.txt
+#   pytest -q
+pytest>=8.0,<9
