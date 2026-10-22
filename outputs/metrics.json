@@ -1,0 +1,18 @@
+{
+  "demo": "local Flask service on 127.0.0.1, requests made by this script, decisions read back from the service access log",
+  "requests_made": 10,
+  "allowed": 4,
+  "denied": 6,
+  "decisions_matching_expected": 10,
+  "decision_agreement_rate": 1.0,
+  "access_log_lines": 10,
+  "access_log_matches_responses": true,
+  "iam_policies_analysed": 3,
+  "iam_findings_total": 6,
+  "iam_findings_per_policy": {
+    "policy_admin_wildcard.json": 3,
+    "policy_dev.json": 3,
+    "policy_readonly.json": 0
+  },
+  "run_at": "2026-10-22T18:29:11.163808+00:00"
+}

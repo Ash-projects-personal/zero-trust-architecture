@@ -1,0 +1,132 @@
+{
+  "requests": [
+    {
+      "label": "no token, public page",
+      "path": "/public",
+      "token": "absent",
+      "expected": "ALLOW",
+      "http_status": 200,
+      "decision": "ALLOW",
+      "match": true
+    },
+    {
+      "label": "no token, profile",
+      "path": "/profile",
+      "token": "absent",
+      "expected": "DENY",
+      "http_status": 401,
+      "decision": "DENY",
+      "match": true
+    },
+    {
+      "label": "alice, profile",
+      "path": "/profile",
+      "token": "present",
+      "expected": "ALLOW",
+      "http_status": 200,
+      "decision": "ALLOW",
+      "match": true
+    },
+    {
+      "label": "alice, admin data",
+      "path": "/admin/data",
+      "token": "present",
+      "expected": "DENY",
+      "http_status": 403,
+      "decision": "DENY",
+      "match": true
+    },
+    {
+      "label": "admin on managed device, admin data",
+      "path": "/admin/data",
+      "token": "present",
+      "expected": "ALLOW",
+      "http_status": 200,
+      "decision": "ALLOW",
+      "match": true
+    },
+    {
+      "label": "admin on unmanaged device, admin data",
+      "path": "/admin/data",
+      "token": "present",
+      "expected": "DENY",
+      "http_status": 403,
+      "decision": "DENY",
+      "match": true
+    },
+    {
+      "label": "expired alice token, profile",
+      "path": "/profile",
+      "token": "present",
+      "expected": "DENY",
+      "http_status": 401,
+      "decision": "DENY",
+      "match": true
+    },
+    {
+      "label": "tampered alice token, profile",
+      "path": "/profile",
+      "token": "present",
+      "expected": "DENY",
+      "http_status": 401,
+      "decision": "DENY",
+      "match": true
+    },
+    {
+      "label": "unknown subject token, profile",
+      "path": "/profile",
+      "token": "present",
+      "expected": "DENY",
+      "http_status": 403,
+      "decision": "DENY",
+      "match": true
+    },
+    {
+      "label": "alice, public page",
+      "path": "/public",
+      "token": "present",
+      "expected": "ALLOW",
+      "http_status": 200,
+      "decision": "ALLOW",
+      "match": true
+    }
+  ],
+  "iam_findings": [
+    {
+      "policy": "policy_admin_wildcard.json",
+      "statement": 0,
+      "issue": "wildcard action",
+      "detail": "policy_admin_wildcard.json statement 0"
+    },
+    {
+      "policy": "policy_admin_wildcard.json",
+      "statement": 0,
+      "issue": "wildcard resource",
+      "detail": "policy_admin_wildcard.json statement 0"
+    },
+    {
+      "policy": "policy_admin_wildcard.json",
+      "statement": 0,
+      "issue": "sensitive action without MFA condition",
+      "detail": "policy_admin_wildcard.json statement 0"
+    },
+    {
+      "policy": "policy_dev.json",
+      "statement": 0,
+      "issue": "service wildcard on sensitive service",
+      "detail": "policy_dev.json statement 0: s3:*"
+    },
+    {
+      "policy": "policy_dev.json",
+      "statement": 0,
+      "issue": "wildcard resource",
+      "detail": "policy_dev.json statement 0"
+    },
+    {
+      "policy": "policy_dev.json",
+      "statement": 0,
+      "issue": "sensitive action without MFA condition",
+      "detail": "policy_dev.json statement 0"
+    }
+  ]
+}

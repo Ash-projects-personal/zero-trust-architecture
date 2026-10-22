@@ -1,4 +1,3 @@
-# Real cloud + mTLS integrations beyond the included simulator.
-boto3>=1.34,<2
-cryptography>=42,<44
-PyYAML>=6.0,<7
+flask>=3.0
+requests>=2.31
+pytest>=8.0

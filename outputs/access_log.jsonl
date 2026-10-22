@@ -1,0 +1,10 @@
+{"ts": "2026-10-22T18:29:11.475485+00:00", "subject": "anonymous", "resource": "/public", "decision": "ALLOW", "reason": "public resource"}
+{"ts": "2026-10-22T18:29:11.477905+00:00", "subject": "anonymous", "resource": "/profile", "decision": "DENY", "reason": "no valid identity token"}
+{"ts": "2026-10-22T18:29:11.480153+00:00", "subject": "alice", "resource": "/profile", "decision": "ALLOW", "reason": "identity, role and device checks passed"}
+{"ts": "2026-10-22T18:29:11.482551+00:00", "subject": "alice", "resource": "/admin/data", "decision": "DENY", "reason": "role admin required"}
+{"ts": "2026-10-22T18:29:11.484703+00:00", "subject": "admin1", "resource": "/admin/data", "decision": "ALLOW", "reason": "identity, role and device checks passed"}
+{"ts": "2026-10-22T18:29:11.486891+00:00", "subject": "admin1", "resource": "/admin/data", "decision": "DENY", "reason": "managed device required"}
+{"ts": "2026-10-22T18:29:11.489016+00:00", "subject": "anonymous", "resource": "/profile", "decision": "DENY", "reason": "token rejected: token expired"}
+{"ts": "2026-10-22T18:29:11.491071+00:00", "subject": "anonymous", "resource": "/profile", "decision": "DENY", "reason": "token rejected: bad signature"}
+{"ts": "2026-10-22T18:29:11.493298+00:00", "subject": "mallory", "resource": "/profile", "decision": "DENY", "reason": "identity not recognised"}
+{"ts": "2026-10-22T18:29:11.495373+00:00", "subject": "alice", "resource": "/public", "decision": "ALLOW", "reason": "public resource"}

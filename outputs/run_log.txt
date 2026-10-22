@@ -1,0 +1,13 @@
+zero trust rebuild run at 2026-10-22T18:29:11.163808+00:00
+no token, public page                      /public      expected ALLOW got ALLOW HTTP 200 ok
+no token, profile                          /profile     expected DENY  got DENY  HTTP 401 ok
+alice, profile                             /profile     expected ALLOW got ALLOW HTTP 200 ok
+alice, admin data                          /admin/data  expected DENY  got DENY  HTTP 403 ok
+admin on managed device, admin data        /admin/data  expected ALLOW got ALLOW HTTP 200 ok
+admin on unmanaged device, admin data      /admin/data  expected DENY  got DENY  HTTP 403 ok
+expired alice token, profile               /profile     expected DENY  got DENY  HTTP 401 ok
+tampered alice token, profile              /profile     expected DENY  got DENY  HTTP 401 ok
+unknown subject token, profile             /profile     expected DENY  got DENY  HTTP 403 ok
+alice, public page                         /public      expected ALLOW got ALLOW HTTP 200 ok
+allowed 4 denied 6, matched 10/10, access log lines 10
+IAM analyser: 3 policies, 6 findings {'policy_admin_wildcard.json': 3, 'policy_dev.json': 3, 'policy_readonly.json': 0}
